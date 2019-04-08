@@ -88,7 +88,12 @@ service_opts = [
     cfg.IntOpt('num_engine_workers',
                help=_('Number of heat-engine processes to fork and run. '
                       'Will default to either to 4 or number of CPUs on '
-                      'the host, whichever is greater.'))]
+                      'the host, whichever is greater.')),
+    cfg.StrOpt('server_keystone_endpoint_type',
+               help=_('If set used by server_keystone_endpoint_url to '
+                      'change the interface used by servers to contact '
+                      'keystone. Otherwise self.context.auth_url is used.'
+                      'Options: public, publicURL, private, privateURL'))]
 
 engine_opts = [
     cfg.ListOpt('plugin_dirs',
